@@ -1,10 +1,9 @@
-'use script';
+// 'use script';
 debugger;
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnOpenModal = document.querySelectorAll('.show-modal');
 const btnCloseModal = document.querySelector('.close-modal');
-console.log(btnOpenModal);
 
 const openModal = function () {
   modal.classList.remove('hidden');
@@ -22,3 +21,12 @@ for (let i = 0; i < btnOpenModal.length; i++) {
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', function (e) {
+  console.log(e.key);
+  if (e.key === 'Escape') {
+    if (!modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  }
+});
